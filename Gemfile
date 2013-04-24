@@ -5,3 +5,4 @@ gem "redis"
 gem "roo"
 gem 'sinatra-jsonp'
 gem 'unicorn'
+gem "newrelic_rpm"
