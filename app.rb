@@ -3,6 +3,7 @@ class Postnr < Sinatra::Base
 
 
   get '/city/:zip_code' do
+    content_type 'application/javascript'
     city = REDIS.get("zip:#{params[:zip_code]}")
     jsonp city
   end
