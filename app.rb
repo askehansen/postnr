@@ -3,8 +3,9 @@ class Postnr < Sinatra::Base
 
 
   get '/city/:zip_code' do
-    content_type 'application/javascript'
+    # content_type 'application/javascript'
+    response['Access-Control-Allow-Origin'] = "*"
     city = REDIS.get("zip:#{params[:zip_code]}")
-    jsonp city
+    city
   end
 end
