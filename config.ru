@@ -1,7 +1,6 @@
 require "rubygems"
 require "sinatra"
 require "redis"
-require "sinatra/jsonp"
 
 configure do
   REDIS = Redis.new
