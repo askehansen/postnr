@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+	</head>
+	<body>
+		<br>
+		<div class="container-fluid">
+			<div class="hero-unit">
+				<h1>Postnummer</h1>
+				<p>En <strong>gratis</strong>, <strong>super hurtig</strong> og <strong>nem at bruge</strong> service til at hente danske byer ud fra postnummer</p>
+				<p><em>Brug den evt. til at gøre din formular lidt mere brugervenlig</em></p>
+			</div>
+
+			<h2>Simpelt brug</h2>
+			<pre>GET <a href="http://postnr.herokuapp.com/city/1000" target="_blank" rel="nofollow">http://postnr.herokuapp.com/city/1000</a><br><em>--> København K</em></pre>
+			
+			<br>
+
+			<h2>jQuery eksempel</h2>
+			<script src="https://gist.github.com/askehansen/5553704.js"></script>
+			<br>
+			<h2>Prøv det selv</h2>
+			<div class="well form-horizontal">
+				<div class="control-group">
+					<label class="control-label">Postnummer</label>
+					<div class="controls">
+						<input type="text" id="postnummer">
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">By</label>
+					<div class="controls">
+						<input type="text" id="by">
+					</div>
+				</div>
+			</div>
+
+			<hr>
+			
+			<div>
+				<p>Bygget med <a href="http://www.sinatrarb.com" target="_blank" rel="nofollow">sinatra</a> og <a href="http://redis.io" target="_blank" rel="nofollow">redis</a>. Hosting på <a href="https://www.heroku.com/" target="_blank" rel="nofollow">heroku</a></p>
+				<p>Bygget af <a href="https://plus.google.com/106216112573136254100/posts" target="_blank">Aske Hansen</a> - <a href="http://deeco.dk">deeco.dk</a></p>
+			</div>
+		</div>
+
+
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script>
+			$(document).ready(function()
+			{
+				$("input#postnummer").on("keyup", function(){
+				    $.get("//postnr.herokuapp.com/city/" + $(this).val(), function(result){
+				        $("input#by").val(result);
+				    });
+				});
+			});
+		</script>
+	</body>
+</html>
