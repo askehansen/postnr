@@ -3,5 +3,5 @@ source 'https://rubygems.org'
 gem "sinatra"
 gem "redis"
 gem "roo"
-gem 'unicorn'
+gem 'puma'
 gem "newrelic_rpm"

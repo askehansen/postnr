@@ -34,6 +34,8 @@ common: &default_settings
   # 
   app_name: <%= ENV["NEW_RELIC_APP_NAME"] %>
 
+  dispatcher: puma
+
   # When "true", the agent collects performance data about your 
   # application and reports this data to the New Relic service at 
   # newrelic.com. This global switch is normally overridden for each 
