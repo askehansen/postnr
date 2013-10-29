@@ -8,4 +8,8 @@ class Postnr < Sinatra::Base
     response['Access-Control-Allow-Origin'] = '*'
     REDIS.get("zip:#{params[:zip_code]}")
   end
+
+  get '/city/' do
+    ''
+  end
 end
