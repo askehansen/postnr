@@ -14,7 +14,7 @@ task :import do
         data = line.split("\t")
         zip_code = data[1]
         city = data[2]
-        redis.set("zip:#{country_code.downcase}:#{zip_code}", city)
+        puts redis.set("zip:#{country_code.downcase}:#{zip_code.gsub(' ', '')}", city)
       end
     end
   end
