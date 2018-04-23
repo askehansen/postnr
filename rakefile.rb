@@ -1,8 +1,10 @@
 require "redis"
 
 def redis
-  redis_uri = URI.parse(ENV["REDISCLOUD_URL"])
-  Redis.new(:host => redis_uri.host, :port => redis_uri.port, :password => redis_uri.password)
+  @_redis ||= begin
+    redis_uri = URI.parse(ENV["REDISCLOUD_URL"])
+    Redis.new(:host => redis_uri.host, :port => redis_uri.port, :password => redis_uri.password)
+  end
 end
 
 task :import do
