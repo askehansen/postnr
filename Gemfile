@@ -5,3 +5,4 @@ gem "redis"
 gem "roo"
 gem 'puma'
 gem "newrelic_rpm"
+gem "rake"
