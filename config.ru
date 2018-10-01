@@ -1,5 +1,6 @@
 require "rubygems"
 require "sinatra"
+require "sinatra/json"
 require "redis"
 
 configure do
