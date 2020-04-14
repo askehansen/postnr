@@ -1,4 +1,5 @@
 require "redis"
+require "CSV"
 
 def redis
   @_redis ||= begin
@@ -12,14 +13,9 @@ def redis
 end
 
 task :import do
-  %w( DK NO SE ).each do |country_code|
-    File.open("data/#{country_code}/#{country_code}.txt") do |file|
-      file.each_line do |line|
-        data = line.split("\t")
-        zip_code = data[1]
-        city = data[2]
-        puts redis.set("zip:#{country_code.downcase}:#{zip_code.gsub(' ', '')}", city)
-      end
+  %w( DK ).each do |country_code|
+    CSV.read("data/#{country_code}/postnumre.csv", col_sep: ";").each do |zipcode, city|
+      puts redis.set("zip:#{country_code.downcase}:#{zip_code}", city)
     end
   end
 end
